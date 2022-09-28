@@ -1,7 +1,6 @@
 import React from "react";
 import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
-import PhotoContainer from "./components/PhotoContainer";
 import PhotoFetcher from "./components/PhotoFetcher";
 
 import apiKey from "./config";
@@ -12,7 +11,7 @@ function App() {
     <div className="container">
       <SearchForm />
       <MainNav />
-      <PhotoContainer /> {/* to PhotoFetcher */}
+      {/* <PhotoContainer /> */}
       <PhotoFetcher myApiKey = {myApiKey}/>
     </div>
   );
