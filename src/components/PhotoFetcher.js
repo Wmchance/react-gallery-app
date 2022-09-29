@@ -39,5 +39,3 @@ const PhotoFetcher = (props) => {
 export default PhotoFetcher;
 
 // https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=f03785bfb25957468d830690db29162a&tags=sunset&per_page=24&format=json&nojsoncallback=1
-
-{/* <h1>{props.myApiKey}</h1>  */}

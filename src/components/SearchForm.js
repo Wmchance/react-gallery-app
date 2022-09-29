@@ -1,8 +1,8 @@
 import React from "react";
 
-const SearchForm = () => {
+const SearchForm = (props) => {
     return (
-        <form className="search-form">
+        <form className="search-form" onSubmit={(e) => props.submitSearch(e)}>
             <input type="search" name="search" placeholder="Search" required/>
             <button type="submit" className="search-button">
                 <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">

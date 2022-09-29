@@ -6,12 +6,16 @@ import PhotoFetcher from "./components/PhotoFetcher";
 import apiKey from "./config";
 const myApiKey = apiKey;
 
+const handleSearch = (e) => {
+  e.preventDefault();
+  console.log(e.target[0].value);
+}
+
 function App() {
   return (
     <div className="container">
-      <SearchForm />
+      <SearchForm submitSearch = {handleSearch}/>
       <MainNav />
-      {/* <PhotoContainer /> */}
       <PhotoFetcher myApiKey = {myApiKey}/>
     </div>
   );
