@@ -22,7 +22,7 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
    
       return (
         <div className="photo-container">
-            <h2>Results</h2>
+            <h2>{searchValue} Photos!</h2>
             <ul>
                 {Photos.map((photo, i) => {
                     return (
