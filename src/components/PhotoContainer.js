@@ -5,7 +5,7 @@ const PhotoContainer = (props) => {
 
     return (
         <li>
-            <img src= {myUrl} alt="" />
+            <img src= {myUrl} alt={props.photo.title} />
         </li>
     )
 }
