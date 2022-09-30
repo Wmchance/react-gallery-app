@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import {
-  createBrowserRouter,
-  Route,
+import { 
+  BrowserRouter,
+  Route 
 } from "react-router-dom";
 import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
@@ -21,18 +21,24 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <SearchForm 
-        submitSearch = {handleSearch}
-      />
-      <MainNav 
-        submitSearch = {handleSearch}
-      />
-      <PhotoFetcher 
-        searchValue = {searchValue}
-        myApiKey = {myApiKey}
-      />
-    </div>
+    <BrowserRouter>
+      <div className="container">
+
+        <SearchForm 
+          submitSearch = {handleSearch}
+        />
+        
+        <MainNav 
+          submitSearch = {handleSearch}
+        />
+
+        <PhotoFetcher 
+          searchValue = {searchValue}
+          myApiKey = {myApiKey}
+        />
+
+      </div>
+    </BrowserRouter>
   );
 }
 
