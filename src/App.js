@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import {
+  createBrowserRouter,
+  Route,
+} from "react-router-dom";
 import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
 import PhotoFetcher from "./components/PhotoFetcher";
