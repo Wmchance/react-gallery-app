@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { 
   BrowserRouter,
+  Routes,
   Route 
 } from "react-router-dom";
 import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
 import PhotoFetcher from "./components/PhotoFetcher";
+import Yolo from "./components/Yolo";
 
 import apiKey from "./config";
 
@@ -23,7 +25,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container">
-
         <SearchForm 
           submitSearch = {handleSearch}
         />
@@ -36,7 +37,9 @@ function App() {
           searchValue = {searchValue}
           myApiKey = {myApiKey}
         />
-
+        <Routes>
+          <Route path="/yolo" element={<Yolo/>} />
+        </Routes>
       </div>
     </BrowserRouter>
   );
