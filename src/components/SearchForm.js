@@ -6,7 +6,7 @@ const SearchForm = (props) => {
     
     return (
         <form 
-            onSubmit = {(e) => props.submitSearch(e)}
+            onSubmit = {(e) => props.submitSearch(e, searchValue)}
             className="search-form">
                 <input 
                     type="search" 

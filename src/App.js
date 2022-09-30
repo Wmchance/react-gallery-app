@@ -11,15 +11,19 @@ function App() {
 
   const [searchValue, setSearchValue] = useState("");
 
-  const handleSearch = (e) => {
+  const handleSearch = (e, searchValue) => {
     e.preventDefault();
-    setSearchValue(e.target[0].value);
+    setSearchValue(searchValue);
   }
 
   return (
     <div className="container">
-      <SearchForm submitSearch = {handleSearch}/>
-      <MainNav />
+      <SearchForm 
+        submitSearch = {handleSearch}
+      />
+      <MainNav 
+        submitSearch = {handleSearch}
+      />
       <PhotoFetcher 
         searchValue = {searchValue}
         myApiKey = {myApiKey}
