@@ -33,11 +33,29 @@ function App() {
           submitSearch = {handleSearch}
         />
 
-        <PhotoFetcher 
+        {/* <PhotoFetcher 
           searchValue = {searchValue}
           myApiKey = {myApiKey}
-        />
+        /> */}
         <Routes>
+          <Route 
+            path = "/waterfalls" 
+            element = {<PhotoFetcher
+            searchValue = {searchValue}
+            myApiKey = {myApiKey}
+          />} />
+          <Route 
+            path = "/bees" 
+            element = {<PhotoFetcher
+            searchValue = {searchValue}
+            myApiKey = {myApiKey}
+          />} />
+          <Route 
+            path = "/mountains" 
+            element = {<PhotoFetcher
+            searchValue = {searchValue}
+            myApiKey = {myApiKey}
+          />} />
           <Route path="/yolo" element={<Yolo/>} />
         </Routes>
       </div>
