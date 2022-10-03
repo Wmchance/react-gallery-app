@@ -8,6 +8,9 @@ import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
 import PhotoFetcher from "./components/PhotoFetcher";
 import Yolo from "./components/Yolo";
+import Bees from "./components/Bees";
+import Waterfalls from "./components/waterfalls";
+import Mountains from "./components/Mountains";
 
 import apiKey from "./config";
 
@@ -40,22 +43,27 @@ function App() {
         <Routes>
           <Route 
             path = "/waterfalls" 
-            element = {<PhotoFetcher
-            searchValue = {searchValue}
-            myApiKey = {myApiKey}
-          />} />
+            element = {<Waterfalls
+              searchValue = {searchValue}
+              myApiKey = {myApiKey}
+            />}
+          />
+
           <Route 
             path = "/bees" 
-            element = {<PhotoFetcher
-            searchValue = {searchValue}
-            myApiKey = {myApiKey}
-          />} />
+            element = {<Bees
+              searchValue = {searchValue}
+              myApiKey = {myApiKey}
+            />} 
+          />
+
           <Route 
             path = "/mountains" 
-            element = {<PhotoFetcher
-            searchValue = {searchValue}
-            myApiKey = {myApiKey}
-          />} />
+            element = {<Mountains
+              searchValue = {searchValue}
+              myApiKey = {myApiKey}
+            />}
+          />
           <Route path="/yolo" element={<Yolo/>} />
         </Routes>
       </div>
