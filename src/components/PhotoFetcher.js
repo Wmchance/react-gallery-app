@@ -19,22 +19,32 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
         getPhotos()
         // eslint-disable-next-line
       }, [fetchUrl])    
+
+    console.log(Photos); //Why does this log 3 times?!? 
    
-      return (
-        <div className="photo-container">
-            <h2>{searchValue}!</h2>
-            <ul>
-                {Photos.map((photo, i) => {
-                    return (
-                        <PhotoContainer 
-                            photo={photo}
-                            key={i}
-                        />
-                    )
-                })}
-            </ul>
-        </div>
-    )
+    if (Photos.length === 0) {
+        return (
+            <div className="photo-container">
+                <h2>Sorry, we couldn't find any photos matching {searchValue}</h2>
+            </div>
+        )
+    } else {
+        return(
+            <div className="photo-container">
+                <h2>{searchValue}!</h2>
+                <ul>
+                    {Photos.map((photo, i) => {
+                        return (
+                            <PhotoContainer 
+                                photo={photo}
+                                key={i}
+                            />
+                        )
+                    })}
+                </ul>
+            </div>
+        )
+    }
 }
 
 export default PhotoFetcher;
