@@ -7,7 +7,7 @@ import {
 import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
 import PhotoFetcher from "./components/PhotoFetcher";
-import Yolo from "./components/Yolo";
+import Home from "./components/Home";
 import Bees from "./components/Bees";
 import Waterfalls from "./components/waterfalls";
 import Mountains from "./components/Mountains";
@@ -64,7 +64,8 @@ function App() {
               myApiKey = {myApiKey}
             />}
           />
-          <Route path="/yolo" element={<Yolo/>} />
+          
+          <Route path="/" element={<Home/>} />
         </Routes>
       </div>
     </BrowserRouter>

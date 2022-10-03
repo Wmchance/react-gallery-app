@@ -16,9 +16,6 @@ const MainNav = (props) => {
                 <li onClick={submitFunction}>
                     <Link to='/mountains'>Mountains</Link>
                 </li>
-                <li>
-                    <Link to='/yolo' onClick={() => console.log("yolo")}>Yolo</Link>
-                </li>
             </ul>
         </nav>
     )
