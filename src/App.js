@@ -8,6 +8,7 @@ import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
 import PhotoFetcher from "./components/PhotoFetcher";
 import Home from "./components/Home";
+import NotFound from "./components/NotFound";
 
 import apiKey from "./config";
 
@@ -34,16 +35,16 @@ function App() {
           submitSearch = {handleSearch}
         />
         <Routes>
-          
-          <Route path="/:searchVal"
-            element={<PhotoFetcher 
-              searchValue = {searchValue}
-              myApiKey = {myApiKey}
-            />} 
-          />
+            <Route path="/:searchVal"
+              element={<PhotoFetcher 
+                searchValue = {searchValue}
+                myApiKey = {myApiKey}
+              />} 
+            />
 
-          <Route path="/" element={<Home />} />
-          
+            <Route path="/" element={<Home />} />
+
+            <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
