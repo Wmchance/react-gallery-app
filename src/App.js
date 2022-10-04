@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { 
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  useLocation
 } from "react-router-dom";
 import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";

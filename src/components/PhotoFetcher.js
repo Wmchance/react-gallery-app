@@ -1,11 +1,25 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 import PhotoContainer from "./PhotoContainer";
 
 
 const PhotoFetcher = ({ myApiKey, searchValue }) => {
+    
+    let title;
+    
+    const location = useLocation();
+    const urlNameValue = location.pathname.slice(1); 
 
     const [Photos, fetchPhotos] = useState([])
-    const fetchUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${myApiKey}&tags=${searchValue}&per_page=24&format=json&nojsoncallback=1`
+    let fetchUrl;
+
+    if(searchValue && searchValue === urlNameValue) {
+        fetchUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${myApiKey}&tags=${searchValue}&per_page=24&format=json&nojsoncallback=1`;
+        title = searchValue;
+    } else {
+        fetchUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${myApiKey}&tags=${urlNameValue}&per_page=24&format=json&nojsoncallback=1`;
+        title = urlNameValue;
+    }
 
     const getPhotos = () => {
         fetch(fetchUrl)
@@ -18,9 +32,9 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
     useEffect(() => {
         getPhotos()
         // eslint-disable-next-line
-      }, [fetchUrl])    
+      }, [urlNameValue])    
 
-    console.log(Photos); //Why does this log 3 times?!? 
+    // console.log(Photos); //Why does this log 3 times?!? 
    
     if (Photos.length === 0) {
         return (
@@ -31,7 +45,7 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
     } else {
         return(
             <div className="photo-container">
-                <h2>{searchValue}!</h2>
+                <h2>{title}!</h2>
                 <ul>
                     {Photos.map((photo, i) => {
                         return (
