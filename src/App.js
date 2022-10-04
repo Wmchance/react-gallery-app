@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { 
   BrowserRouter,
   Routes,
-  Route 
+  Route
 } from "react-router-dom";
 import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
@@ -13,6 +13,7 @@ import Waterfalls from "./components/waterfalls";
 import Mountains from "./components/Mountains";
 
 import apiKey from "./config";
+
 
 function App() {
 
@@ -41,31 +42,38 @@ function App() {
           myApiKey = {myApiKey}
         /> */}
         <Routes>
-          <Route 
+          {/* <Route 
             path = "/waterfalls" 
             element = {<Waterfalls
               searchValue = {searchValue}
               myApiKey = {myApiKey}
             />}
-          />
+          /> */}
 
-          <Route 
+          {/* <Route 
             path = "/bees" 
             element = {<Bees
               searchValue = {searchValue}
               myApiKey = {myApiKey}
             />} 
-          />
+          /> */}
 
-          <Route 
+          {/* <Route 
             path = "/mountains" 
             element = {<Mountains
               searchValue = {searchValue}
               myApiKey = {myApiKey}
             />}
-          />
+          /> */}
           
-          <Route path="/" element={<Home/>} />
+          <Route path="/:searchVal"
+            element={<PhotoFetcher 
+              searchValue = {searchValue}
+              myApiKey = {myApiKey}
+            />} 
+          />
+
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </BrowserRouter>
