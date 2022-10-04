@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MainNav = (props) => {
-    const submitFunction = (e) => props.submitSearch(e, e.target.innerText);
+const MainNav = ({ submitSearch }) => {
+    const submitFunction = (e) => submitSearch(e, e.target.innerText);
 
     return (
         <nav className="main-nav">
