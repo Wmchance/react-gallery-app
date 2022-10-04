@@ -3,15 +3,11 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useLocation
 } from "react-router-dom";
 import MainNav from "./components/MainNav";
 import SearchForm from "./components/SearchForm";
 import PhotoFetcher from "./components/PhotoFetcher";
 import Home from "./components/Home";
-import Bees from "./components/Bees";
-import Waterfalls from "./components/waterfalls";
-import Mountains from "./components/Mountains";
 
 import apiKey from "./config";
 
@@ -37,35 +33,7 @@ function App() {
         <MainNav 
           submitSearch = {handleSearch}
         />
-
-        {/* <PhotoFetcher 
-          searchValue = {searchValue}
-          myApiKey = {myApiKey}
-        /> */}
         <Routes>
-          {/* <Route 
-            path = "/waterfalls" 
-            element = {<Waterfalls
-              searchValue = {searchValue}
-              myApiKey = {myApiKey}
-            />}
-          /> */}
-
-          {/* <Route 
-            path = "/bees" 
-            element = {<Bees
-              searchValue = {searchValue}
-              myApiKey = {myApiKey}
-            />} 
-          /> */}
-
-          {/* <Route 
-            path = "/mountains" 
-            element = {<Mountains
-              searchValue = {searchValue}
-              myApiKey = {myApiKey}
-            />}
-          /> */}
           
           <Route path="/:searchVal"
             element={<PhotoFetcher 
@@ -75,6 +43,7 @@ function App() {
           />
 
           <Route path="/" element={<Home />} />
+          
         </Routes>
       </div>
     </BrowserRouter>
