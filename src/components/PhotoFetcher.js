@@ -39,7 +39,7 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
     if (Photos.length === 0) {
         return (
             <div className="photo-container">
-                <h2>Sorry, we couldn't find any photos matching {searchValue}</h2>
+                <h2>Sorry, we couldn't find any photos matching {urlNameValue}</h2>
             </div>
         )
     } else {
