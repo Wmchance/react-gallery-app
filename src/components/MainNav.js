@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const MainNav = ({ submitSearch }) => {
     const submitFunction = (e) => submitSearch(e, e.target.innerText);
@@ -8,13 +8,13 @@ const MainNav = ({ submitSearch }) => {
         <nav className="main-nav">
             <ul>
                 <li onClick={submitFunction}>
-                    <Link to='/waterfalls'>Waterfalls</Link>
+                    <NavLink to='/waterfalls'>Waterfalls</NavLink>
                 </li>
                 <li onClick={submitFunction}>
-                    <Link to='/bees'>Bees</Link>
+                    <NavLink to='/bees'>Bees</NavLink>
                 </li>
                 <li onClick={submitFunction}>
-                    <Link to='/mountains'>Mountains</Link>
+                    <NavLink to='/mountains'>Mountains</NavLink>
                 </li>
             </ul>
         </nav>
