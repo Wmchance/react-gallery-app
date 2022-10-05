@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import PhotoContainer from "./PhotoContainer";
+import IsLoading from "./IsLoading";
 
 
 const PhotoFetcher = ({ myApiKey, searchValue }) => {
@@ -11,7 +12,10 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
     const urlNameValue = location.pathname.slice(1); 
 
     const [Photos, fetchPhotos] = useState([])
+
     let fetchUrl;
+
+    const [isLoading, upDateLoading] = useState(true);
 
     if(searchValue && searchValue === urlNameValue) {
         fetchUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${myApiKey}&tags=${searchValue}&per_page=24&format=json&nojsoncallback=1`;
@@ -26,21 +30,25 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
         .then((res) => res.json())    
         .then((res) => {
             fetchPhotos(res.photos.photo)
+            upDateLoading(false)
         })
     }
 
     useEffect(() => {
         getPhotos()
+        upDateLoading(true)
         // eslint-disable-next-line
       }, [urlNameValue])    
 
-    // console.log(Photos); //Why does this log 3 times?!? 
-   
-    if (Photos.length === 0) {
+    if(isLoading) {
+        return (
+            <IsLoading title={title}/>
+        )
+    } else if (Photos.length === 0) {
         return (
             <div className="photo-container">
                 <h2>Sorry, we couldn't find any photos matching {urlNameValue}</h2>
-                <h3>Please try another search</h3>
+                <p>Please try another search</p>
             </div>
         )
     } else {
