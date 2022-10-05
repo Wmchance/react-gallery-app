@@ -1,5 +1,6 @@
 import React from "react";
 
+//Loading message displayed before fetch request is completed
 const IsLoading = ({title}) => {
     return(
         <div className="photo-container">

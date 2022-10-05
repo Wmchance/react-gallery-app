@@ -1,5 +1,6 @@
 import React from "react";
 
+//Message seen before a search is made
 const Home = () => {
     return (
         <div>

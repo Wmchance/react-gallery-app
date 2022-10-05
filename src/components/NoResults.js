@@ -1,5 +1,6 @@
 import React from "react";
 
+//Message to display when the search returns no results 
 const NoResults = ({title}) => {
     return(
         <div className="photo-container">

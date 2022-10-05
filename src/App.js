@@ -10,15 +10,16 @@ import PhotoFetcher from "./components/PhotoFetcher";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 
-import apiKey from "./config";
+import apiKey from "./config"; //Flickr api key
 
 
 function App() {
 
   const myApiKey = apiKey;
 
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(""); //Store search value from SearchForm & MainNav
 
+  //Function to lift search values from MainNav & SearchForm components
   const handleSearch = (e, searchValue) => {
     e.preventDefault();
     setSearchValue(searchValue);
@@ -44,7 +45,8 @@ function App() {
 
             <Route path="/" element={<Home />} />
 
-            <Route path="*" element={<NotFound />} />
+            {/* Render 404 message when there are no matching routes */}
+            <Route path="*" element={<NotFound />} /> 
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,5 +1,6 @@
 import React from "react";
 
+//Message to display if user navigates to a url with no corresponding route
 const NotFound = () => {
     return(
         <div className="photo-container">

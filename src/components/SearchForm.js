@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//Displays a search form & lifts the returned value to the App component through submitSearch function
 const SearchForm = ({ submitSearch }) => {
     
     const [searchValue, setSearchValue] = useState("");
-    const navigate = useNavigate();
+    const navigate = useNavigate(); //Allow for the url and route to reflect the searched for value(Navigates to the given url)
     
     return (
         <form 
             onSubmit = {(e) => {
-                submitSearch(e, searchValue)
-                navigate('/' + searchValue)
-                setSearchValue('')
+                submitSearch(e, searchValue) //Lifts the searched value up to the App component
+                navigate('/' + searchValue) //Directs the url to the given searchValue
+                setSearchValue('') //Resets the search field after the form is submitted
                 }}
             className="search-form">
                 <input 
@@ -19,7 +20,7 @@ const SearchForm = ({ submitSearch }) => {
                     name="search" 
                     placeholder="Search" 
                     value={searchValue} 
-                    onChange = {(e) => setSearchValue(e.target.value)} 
+                    onChange = {(e) => setSearchValue(e.target.value)} //Updates the searchValue on each keypress
                     required
                 />
                 
