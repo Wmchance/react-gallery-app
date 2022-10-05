@@ -33,6 +33,9 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
             fetchPhotos(res.photos.photo)
             upDateLoading(false)
         })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     }
 
     useEffect(() => {
