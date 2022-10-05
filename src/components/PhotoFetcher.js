@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import PhotoContainer from "./PhotoContainer";
 import IsLoading from "./IsLoading";
+import NoResults from "./NoResults";
 
 
 const PhotoFetcher = ({ myApiKey, searchValue }) => {
@@ -46,10 +47,7 @@ const PhotoFetcher = ({ myApiKey, searchValue }) => {
         )
     } else if (Photos.length === 0) {
         return (
-            <div className="photo-container">
-                <h2>Sorry, we couldn't find any photos matching {urlNameValue}</h2>
-                <p>Please try another search</p>
-            </div>
+            <NoResults title={title}/> 
         )
     } else {
         return(
